@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
                 // Set up player ghost
                 playerGhost.gameObject.SetActive(true);
                 playerGhost.GetComponent<Rigidbody2D>().position = playerRigidBody.position;
-                playerGhost.GetComponent<Rigidbody2D>().rotation= playerRigidBody.rotation;
+                playerGhost.GetComponent<Rigidbody2D>().rotation = playerRigidBody.rotation;
             }
             // MOUSE BUTTON UP EVENT
             else {
@@ -87,28 +87,26 @@ public class PlayerMovement : MonoBehaviour
             playerGhost.GetComponent<Rigidbody2D>().angularVelocity += -playerGhost.GetComponent<Rigidbody2D>().velocity.x;
 
             // Constantly move player toward grab point and ghost rotation
-            playerRigidBody.angularVelocity += (playerGhost.GetComponent<Rigidbody2D>().rotation - playerRigidBody.rotation);
+            playerRigidBody.angularVelocity = playerRigidBody.angularVelocity*.9f + (playerGhost.GetComponent<Rigidbody2D>().rotation - playerRigidBody.rotation);
             playerRigidBody.velocity = playerRigidBody.velocity*.9f + (grabPoint - playerRigidBody.position);
         } 
         // Behavior while not grabbed
         else {
-            float walkingSpinSpeed = 10000;
-            float walkingSpeed = 5;
-            if (Mathf.Abs(playerRigidBody.angularVelocity) < 500){
-                if (Input.GetKey(KeyCode.A)) { // LEFT
-                    playerRigidBody.angularVelocity = playerRigidBody.angularVelocity+(walkingSpinSpeed*Time.deltaTime);
-                }
-                else if (Input.GetKey(KeyCode.D)) { // RIGHT
-                    playerRigidBody.angularVelocity = playerRigidBody.angularVelocity-(walkingSpinSpeed*Time.deltaTime);
-                }
+            float walkingSpinSpeed = 8000;
+            float walkingSpeed = 15;
+            
+            if (Input.GetKey(KeyCode.A) && playerRigidBody.angularVelocity < 800) { // LEFT
+                playerRigidBody.angularVelocity = playerRigidBody.angularVelocity+(walkingSpinSpeed*Time.fixedDeltaTime);
             }
-            if (Mathf.Abs(playerRigidBody.velocity.x) < 5){
-                if (Input.GetKey(KeyCode.A)) { // LEFT
-                    playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x-(walkingSpeed*Time.deltaTime), playerRigidBody.velocity.y);
-                }
-                else if (Input.GetKey(KeyCode.D)) { // RIGHT
-                    playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x+(walkingSpeed*Time.deltaTime), playerRigidBody.velocity.y);
-                }
+            else if (Input.GetKey(KeyCode.D) && playerRigidBody.angularVelocity > -800) { // RIGHT
+                playerRigidBody.angularVelocity = playerRigidBody.angularVelocity-(walkingSpinSpeed*Time.fixedDeltaTime);
+            }
+            
+            if (Input.GetKey(KeyCode.A) && playerRigidBody.velocity.x > -5) { // LEFT
+                playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x-(walkingSpeed*Time.fixedDeltaTime), playerRigidBody.velocity.y);
+            }
+            else if (Input.GetKey(KeyCode.D) && playerRigidBody.velocity.x < 5) { // RIGHT
+                playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x+(walkingSpeed*Time.fixedDeltaTime), playerRigidBody.velocity.y);
             }
         }
     }
