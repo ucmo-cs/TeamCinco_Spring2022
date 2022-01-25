@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camfollow : MonoBehaviour
+public class CamFollow : MonoBehaviour
 {
     public GameObject objectOfInterest;
     private Vector3 freezePoint;
