@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 123364304}
   - component: {fileID: 123364303}
   - component: {fileID: 123364306}
-  - component: {fileID: 123364305}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -207,19 +206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &123364305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123364302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48684faa17034d84c9f76ec5c509e136, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 955721855}
 --- !u!58 &123364306
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -867,8 +853,9 @@ GameObject:
   - component: {fileID: 955721855}
   - component: {fileID: 955721853}
   - component: {fileID: 955721856}
-  - component: {fileID: 955721857}
   - component: {fileID: 955721858}
+  - component: {fileID: 955721857}
+  - component: {fileID: 955721859}
   m_Layer: 0
   m_Name: Isometric Diamond
   m_TagString: Player
@@ -884,7 +871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955721851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.73396, y: 3.01, z: 0}
+  m_LocalPosition: {x: -8.75, y: 3, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1485687384}
@@ -943,7 +930,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1033,6 +1020,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b6d0c5210cca64b830f63048c9eaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &955721859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955721851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5299c85bfc68fa249b6c02e5f71948a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchors:
+  - {fileID: 123364306}
 --- !u!1 &977858656
 GameObject:
   m_ObjectHideFlags: 0
