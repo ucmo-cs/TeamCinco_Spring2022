@@ -7,6 +7,6 @@ public class DeathZone : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D targetObj)
     {
         if (targetObj.gameObject != player) return;
-        player.GetComponent<PlayerMovement>().Respawn();
+        player.GetComponent<RespawnScript>().Respawn();
     }
 }

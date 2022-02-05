@@ -9,16 +9,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _grabPointOffset;
     private bool _grabbed;
     private bool _grabbedChanged;
-    private Vector2 _respawnPoint = new Vector2(0, 0);
 
     // Start is called before the first frame update
     private void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
-        _respawnPoint = _playerRigidBody.transform.position;
         playerGhost.gameObject.SetActive(false);
     }
-
 
     // Update is called once per frame
     private void Update()
@@ -126,18 +123,5 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrabbed()
     {
         return _grabbed;
-    }
-
-    public void Respawn()
-    {
-        _playerRigidBody.transform.position = _respawnPoint;
-        _playerRigidBody.velocity = new Vector2();
-        _playerRigidBody.angularVelocity = 0;
-        _playerRigidBody.rotation = 0;
-    }
-
-    public void SetRespawnPoint(Vector2 newRespawnPoint)
-    {
-        _respawnPoint = newRespawnPoint;
     }
 }
