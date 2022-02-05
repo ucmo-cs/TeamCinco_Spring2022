@@ -1,42 +1,44 @@
-using System;
 using UnityEngine;
 
-public class SimpleMovement : MonoBehaviour
+namespace MonoBehaviors
 {
-    private Rigidbody2D player;
-    public const float walkingSpinSpeed = 8000;
-    public float walkingSpeed = 15;
-
-    private void Start()
+    public class IsoDiamondMovement : MonoBehaviour
     {
-        player = GetComponent<Rigidbody2D>();
-    }
+        private Rigidbody2D _player;
+        private const float WalkingSpinSpeed = 8000;
+        private const float WalkingSpeed = 15;
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.A))
+        private void Start()
         {
-            if (player.angularVelocity < 800)
-            {
-                player.angularVelocity += walkingSpinSpeed * Time.fixedDeltaTime;
-            }
-
-            if (!(player.velocity.x > -5)) return;
-            var velocity = player.velocity; // cache velocity
-            velocity = new Vector2(velocity.x - (walkingSpeed * Time.fixedDeltaTime), velocity.y);
-            player.velocity = velocity;
+            _player = GetComponent<Rigidbody2D>();
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            if (player.angularVelocity > -800)
-            {
-                player.angularVelocity -= walkingSpinSpeed * Time.fixedDeltaTime;
-            }
 
-            if (!(player.velocity.x < 5)) return;
-            var velocity = player.velocity; // cache velocity
-            velocity = new Vector2(velocity.x + (walkingSpeed * Time.fixedDeltaTime), velocity.y);
-            player.velocity = velocity;
+        private void FixedUpdate()
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                if (_player.angularVelocity < 800)
+                {
+                    _player.angularVelocity += WalkingSpinSpeed * Time.fixedDeltaTime;
+                }
+
+                if (!(_player.velocity.x > -5)) return;
+                var velocity = _player.velocity; // cache velocity
+                velocity = new Vector2(velocity.x - (WalkingSpeed * Time.fixedDeltaTime), velocity.y);
+                _player.velocity = velocity;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                if (_player.angularVelocity > -800)
+                {
+                    _player.angularVelocity -= WalkingSpinSpeed * Time.fixedDeltaTime;
+                }
+
+                if (!(_player.velocity.x < 5)) return;
+                var velocity = _player.velocity; // cache velocity
+                velocity = new Vector2(velocity.x + (WalkingSpeed * Time.fixedDeltaTime), velocity.y);
+                _player.velocity = velocity;
+            }
         }
     }
 }
