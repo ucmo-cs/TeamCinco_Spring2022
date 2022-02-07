@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 123364304}
   - component: {fileID: 123364303}
   - component: {fileID: 123364306}
+  - component: {fileID: 123364305}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -206,6 +207,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123364305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123364302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c307ede41d5374f8f3dd83641a70f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 955721855}
+  playerGhost: {fileID: 1485687382}
 --- !u!58 &123364306
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1027,7 +1042,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955721851}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5299c85bfc68fa249b6c02e5f71948a7, type: 3}
   m_Name: 
@@ -1087,7 +1102,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.980571
+  orthographic size: 6.2426596
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1111,7 +1126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977858656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 1.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1174,7 +1189,7 @@ GameObject:
   - component: {fileID: 1485687383}
   - component: {fileID: 1485687385}
   m_Layer: 0
-  m_Name: theGithubRepoSwitchScrewedEverythingUpPog
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
