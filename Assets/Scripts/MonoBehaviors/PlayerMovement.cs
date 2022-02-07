@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _grabPointOffset;
     private bool _grabbed;
     private bool _grabbedChanged;
-    float waitTime = 3.0f;
-    bool doneWaiting = true;
+    private float _waitTime = 3.5f;
+    private bool _doneWaiting = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -30,14 +30,14 @@ public class PlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
-        if(!doneWaiting) {
-            if(waitTime > 0) {
+        if(!_doneWaiting) {
+            if(_waitTime > 0) {
                 Debug.Log("Waiting for cooldown");
-                waitTime -= Time.deltaTime;
+                _waitTime -= Time.deltaTime;
             } else {
                 Debug.Log("Waiting Done");
-                waitTime = 3.0f;
-                doneWaiting = true;
+                _waitTime = 3.0f;
+                _doneWaiting = true;
             }
         }
 
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _grabbedChanged = false; // Reset flag.
 
-            if (_grabbed && doneWaiting) // MOUSE BUTTON DOWN EVENT
+            if (_grabbed && _doneWaiting) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
                 _grabPoint = _playerRigidBody.position;
@@ -71,24 +71,25 @@ public class PlayerMovement : MonoBehaviour
             }
             else // MOUSE BUTTON UP EVENT
             {
-                if(doneWaiting) {
-                    // Apply velocity, capped at max value(mv).
-                    var v = _playerRigidBody.velocity + playerGhost.GetComponent<Rigidbody2D>().velocity / 3;
-                    const float mv = 20;
-                    v.x = v.x > mv ? mv : v.x;
-                    v.x = v.x < -mv ? -mv : v.x;
-                    v.y = v.y > mv ? mv : v.y;
-                    v.y = v.y < -mv ? -mv : v.y;
-                    _playerRigidBody.velocity = v;
+                // if(_doneWaiting) {
+                    
+                // }
+                // Apply velocity, capped at max value(mv).
+                var v = _playerRigidBody.velocity + playerGhost.GetComponent<Rigidbody2D>().velocity / 3;
+                const float mv = 20;
+                v.x = v.x > mv ? mv : v.x;
+                v.x = v.x < -mv ? -mv : v.x;
+                v.y = v.y > mv ? mv : v.y;
+                v.y = v.y < -mv ? -mv : v.y;
+                _playerRigidBody.velocity = v;
 
-                    // Hide player ghost
-                    playerGhost.gameObject.SetActive(false);
-                    doneWaiting = false;
-                }
+                // Hide player ghost
+                playerGhost.gameObject.SetActive(false);
+                _doneWaiting = false;
             }
         }
 
-        if (_grabbed && doneWaiting) // Behavior while grabbed
+        if (_grabbed && _doneWaiting) // Behavior while grabbed
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var currentPosition = playerGhost.GetComponent<Rigidbody2D>().position;
@@ -139,5 +140,10 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrabbed()
     {
         return _grabbed;
+    }
+
+    public bool IsWaiting() 
+    {
+        return _doneWaiting;
     }
 }

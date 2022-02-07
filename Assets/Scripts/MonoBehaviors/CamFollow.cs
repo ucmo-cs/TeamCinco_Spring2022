@@ -12,12 +12,14 @@ public class CamFollow : MonoBehaviour
     {
         Vector2 objPos = objectOfInterest.transform.position;
         var cameraPos = gameObject.transform.position;
-        if (!_grabbed && objectOfInterest.GetComponent<PlayerMovement>().IsGrabbed())
+        bool _isGrabbed = objectOfInterest.GetComponent<PlayerMovement>().IsGrabbed();
+        bool _isWaiting = objectOfInterest.GetComponent<PlayerMovement>().IsWaiting();
+        if (!_grabbed && _isGrabbed && _isWaiting)
         {
             _freezePoint = gameObject.transform.position;
             _grabbed = true;
         }
-        else if (_grabbed && !objectOfInterest.GetComponent<PlayerMovement>().IsGrabbed())
+        else if (_grabbed && !_isGrabbed && !_isWaiting)
         {
             _grabbed = false;
         }
