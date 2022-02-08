@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickToCam : MonoBehaviour
+public class DragCooldownIcon : MonoBehaviour
 {
     public GameObject icon;
     void LateUpdate()

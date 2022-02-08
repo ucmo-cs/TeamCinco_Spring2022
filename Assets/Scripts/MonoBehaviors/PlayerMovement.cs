@@ -4,12 +4,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject playerGhost;
 
+    public CooldownTimer timer;
+
     private Rigidbody2D _playerRigidBody;
     private Vector2 _grabPoint;
     private Vector2 _grabPointOffset;
     private bool _grabbed;
     private bool _grabbedChanged;
-    private float _waitTime = 3.5f;
     private bool _doneWaiting = true;
 
     // Start is called before the first frame update
@@ -31,14 +32,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(!_doneWaiting) {
-            if(_waitTime > 0) {
-                Debug.Log("Waiting for cooldown");
-                _waitTime -= Time.deltaTime;
-            } else {
-                Debug.Log("Waiting Done");
-                _waitTime = 3.0f;
-                _doneWaiting = true;
-            }
+            _doneWaiting = timer.UpdateTimer();
         }
 
         if (!Input.GetMouseButton(0) || _grabbed) return;
