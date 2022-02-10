@@ -1,35 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CooldownTimer : MonoBehaviour
 {
     private float _waitTime = 3.0f;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        var parent = transform.parent;
-
-        var parentRenderer = parent.GetComponent<Renderer>();
-        var renderer = GetComponent<Renderer>();
-        renderer.sortingLayerID = parentRenderer.sortingLayerID;
-        renderer.sortingOrder = parentRenderer.sortingOrder;
-
-        var text = GetComponent<TextMesh>();
-        text.text = string.Format("{0}", 3);
+        var text = GetComponent<Text>();
+        text.text = "3";
     }
 
     public bool UpdateTimer()
     {
-        var text = GetComponent<TextMesh>();
-        if (_waitTime > 0) {
-            text.text = string.Format("{0}", (int)_waitTime);
+        var text = GetComponent<Text>();
+        if (_waitTime > 0)
+        {
+            text.text = ((int) _waitTime).ToString();
             _waitTime -= Time.deltaTime;
             return false;
-        } else {
-            _waitTime = 3.0f;
-            text.text = string.Format("{0}", (int)_waitTime);
-            return true;
         }
+
+        _waitTime = 3.0f;
+        text.text = "3";
+        return true;
     }
 }

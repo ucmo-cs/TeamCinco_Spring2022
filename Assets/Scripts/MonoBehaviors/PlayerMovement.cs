@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
-        if(!_doneWaiting) {
+        if (!_doneWaiting)
+        {
             _doneWaiting = timer.UpdateTimer();
         }
 
@@ -65,9 +66,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else // MOUSE BUTTON UP EVENT
             {
-                // if(_doneWaiting) {
-                    
-                // }
                 // Apply velocity, capped at max value(mv).
                 var v = _playerRigidBody.velocity + playerGhost.GetComponent<Rigidbody2D>().velocity / 3;
                 const float mv = 20;
@@ -136,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         return _grabbed;
     }
 
-    public bool IsWaiting() 
+    public bool IsWaiting()
     {
         return _doneWaiting;
     }
