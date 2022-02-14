@@ -1,20 +1,23 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Anchor : MonoBehaviour
 {
+    private Collider2D _anchor;
+    public Rigidbody2D player;
     public GameObject playerGhost;
-
-    private Rigidbody2D _playerRigidBody;
+    
     private Vector2 _grabPoint;
     private Vector2 _grabPointOffset;
     private bool _grabbed;
     private bool _grabbedChanged;
-
+    
     // Start is called before the first frame update
     private void Start()
     {
-        _playerRigidBody = GetComponent<Rigidbody2D>();
-        playerGhost.gameObject.SetActive(false);
+        _anchor = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -29,8 +32,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (!Input.GetMouseButton(0) || _grabbed) return;
+        Debug.Log("Mouse Down");
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (!(Vector2.Distance(_playerRigidBody.position, mousePosition) < .5)) return;
+        if (!(Vector2.Distance(player.position, mousePosition) < .5))
+        {
+            Debug.Log("Not near Player: " + Vector2.Distance(player.position, mousePosition));
+            return;
+        }
+        Debug.Log("Near Player");
+        Debug.Log(_anchor.bounds);
+        if (_anchor.bounds.Contains(mousePosition))
+        {
+            Debug.Log("Not near Anchor" + Vector2.Distance(_anchor.offset, mousePosition));
+            return;
+        }
+        Debug.Log("Near anchor");
         // Activate grab
         _grabbed = true;
         _grabbedChanged = true;
@@ -46,33 +62,33 @@ public class PlayerMovement : MonoBehaviour
             if (_grabbed) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
-                _grabPoint = _playerRigidBody.position;
+                _grabPoint = player.position;
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 _grabPointOffset = (mousePosition - _grabPoint) / 2;
                 _grabPoint.y += .5f; // This makes the player hover in the air a little bit
 
                 // Set up player ghost
                 playerGhost.gameObject.SetActive(true);
-                playerGhost.GetComponent<Rigidbody2D>().position = _playerRigidBody.position;
-                playerGhost.GetComponent<Rigidbody2D>().rotation = _playerRigidBody.rotation;
+                playerGhost.GetComponent<Rigidbody2D>().position = player.position;
+                playerGhost.GetComponent<Rigidbody2D>().rotation = player.rotation;
             }
             else // MOUSE BUTTON UP EVENT
             {
                 // Apply velocity, capped at max value(mv).
-                var v = _playerRigidBody.velocity + playerGhost.GetComponent<Rigidbody2D>().velocity / 3;
+                var v = player.velocity + playerGhost.GetComponent<Rigidbody2D>().velocity / 3;
                 const float mv = 20;
                 v.x = v.x > mv ? mv : v.x;
                 v.x = v.x < -mv ? -mv : v.x;
                 v.y = v.y > mv ? mv : v.y;
                 v.y = v.y < -mv ? -mv : v.y;
-                _playerRigidBody.velocity = v;
+                player.velocity = v;
 
                 // Hide player ghost
                 playerGhost.gameObject.SetActive(false);
             }
         }
 
-        if (_grabbed) // Behavior while grabbed
+        if (!_grabbed) return;
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var currentPosition = playerGhost.GetComponent<Rigidbody2D>().position;
@@ -86,42 +102,10 @@ public class PlayerMovement : MonoBehaviour
                 playerGhost.GetComponent<Rigidbody2D>().velocity.x;
 
             // Constantly move player toward grab point and ghost rotation
-            _playerRigidBody.angularVelocity = _playerRigidBody.angularVelocity * .9f +
-                                               (playerGhost.GetComponent<Rigidbody2D>().rotation -
-                                                _playerRigidBody.rotation);
-            _playerRigidBody.velocity = _playerRigidBody.velocity * .9f + (_grabPoint - _playerRigidBody.position);
+            player.angularVelocity = player.angularVelocity * .9f +
+                                     (playerGhost.GetComponent<Rigidbody2D>().rotation -
+                                      player.rotation);
+            player.velocity = player.velocity * .9f + (_grabPoint - player.position);
         }
-        else // Behavior while not grabbed
-        {
-            const float walkingSpinSpeed = 8000;
-            const float walkingSpeed = 15;
-
-            if (Input.GetKey(KeyCode.A) && _playerRigidBody.angularVelocity < 800) // LEFT
-            {
-                _playerRigidBody.angularVelocity += walkingSpinSpeed * Time.fixedDeltaTime;
-            }
-            else if (Input.GetKey(KeyCode.D) && _playerRigidBody.angularVelocity > -800) // RIGHT
-            {
-                _playerRigidBody.angularVelocity -= walkingSpinSpeed * Time.fixedDeltaTime;
-            }
-
-            if (Input.GetKey(KeyCode.A) && _playerRigidBody.velocity.x > -5) // LEFT
-            {
-                var velocity = _playerRigidBody.velocity; // cache velocity
-                velocity = new Vector2(velocity.x - (walkingSpeed * Time.fixedDeltaTime), velocity.y);
-                _playerRigidBody.velocity = velocity;
-            }
-            else if (Input.GetKey(KeyCode.D) && _playerRigidBody.velocity.x < 5) // RIGHT
-            {
-                var velocity = _playerRigidBody.velocity; // cache velocity
-                velocity = new Vector2(velocity.x + (walkingSpeed * Time.fixedDeltaTime), velocity.y);
-                _playerRigidBody.velocity = velocity;
-            }
-        }
-    }
-
-    public bool IsGrabbed()
-    {
-        return _grabbed;
     }
 }

@@ -7,14 +7,9 @@ public class MainMenu : MonoBehaviour
 {
     public AudioSource mainMenuMusic;
     public GameObject mainMenu;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (mainMenuMusic.time >= 12.3879) mainMenu.SetActive(true);
     }
