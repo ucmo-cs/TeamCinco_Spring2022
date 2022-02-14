@@ -4,11 +4,14 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameObject playerGhost;
 
+    public CooldownTimer timer;
+
     private Rigidbody2D _playerRigidBody;
     private Vector2 _grabPoint;
     private Vector2 _grabPointOffset;
     private bool _grabbed;
     private bool _grabbedChanged;
+    private bool _doneWaiting = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
+        if (!_doneWaiting)
+        {
+            _doneWaiting = timer.UpdateTimer();
+        }
+
         if (!Input.GetMouseButton(0) || _grabbed) return;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (!(Vector2.Distance(_playerRigidBody.position, mousePosition) < .5)) return;
@@ -43,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _grabbedChanged = false; // Reset flag.
 
-            if (_grabbed) // MOUSE BUTTON DOWN EVENT
+            if (_grabbed && _doneWaiting) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
                 _grabPoint = _playerRigidBody.position;
@@ -69,10 +77,11 @@ public class PlayerMovement : MonoBehaviour
 
                 // Hide player ghost
                 playerGhost.gameObject.SetActive(false);
+                _doneWaiting = false;
             }
         }
 
-        if (_grabbed) // Behavior while grabbed
+        if (_grabbed && _doneWaiting) // Behavior while grabbed
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var currentPosition = playerGhost.GetComponent<Rigidbody2D>().position;
@@ -123,5 +132,10 @@ public class PlayerMovement : MonoBehaviour
     public bool IsGrabbed()
     {
         return _grabbed;
+    }
+
+    public bool IsWaiting()
+    {
+        return _doneWaiting;
     }
 }
