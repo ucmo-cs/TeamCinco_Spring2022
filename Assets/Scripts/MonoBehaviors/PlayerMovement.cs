@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (!_doneWaiting)
         {
             _doneWaiting = timer.UpdateTimer();
+            return;
         }
 
         if (!Input.GetMouseButton(0) || _grabbed) return;
