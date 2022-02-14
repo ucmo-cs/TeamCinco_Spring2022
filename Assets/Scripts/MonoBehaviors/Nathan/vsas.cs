@@ -3,6 +3,7 @@ using UnityEngine;
 public class vsas : MonoBehaviour
 {
     public AudioSource music;
+    public AudioSource music2;
     public GameObject objectOfInterest;
     private Vector2 _pos;
 
@@ -22,6 +23,7 @@ public class vsas : MonoBehaviour
         if (value < 0) value = 0;
         if (value > 1) value = 1;
         music.volume = value;
+        music2.volume = 1-(value*2);
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, value);
         _i += Time.deltaTime * 1.5f;
         transform.position = _pos + new Vector2(0, Mathf.Sin(_i));
