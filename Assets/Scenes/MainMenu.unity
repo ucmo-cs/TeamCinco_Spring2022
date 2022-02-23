@@ -153,7 +153,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b353b5c91b1c2c74f930cd82a9533660, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 48c7dc07e5693e348a7d69bc8c010cbe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -370,7 +370,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5448ef19996d4ba4d8ff9f442bdd4687, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ace9cf90d3f94e478366bc7107243eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

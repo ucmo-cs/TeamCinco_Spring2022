@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nathan/Titlecard.unity
+    path: Assets/Scenes/Titlecard.unity
     guid: 904842c729e0b4d44abb31fccb39a70e
   - enabled: 1
-    path: Assets/Scenes/Nathan/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 8012b72d4d4c20242b4304e21e67c541
+  - enabled: 1
+    path: Assets/Scenes/Nathan/NathanLevel1.unity
+    guid: 53ad22ed2850c7543b4fa9ad089087ad
   - enabled: 0
     path: Assets/Scenes/AnchorBasedSwinging.unity
     guid: 60f931a8171dc9a47967e79ce5cc04d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FreeSwinging.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
