@@ -274,9 +274,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 400928360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44884e7517f24031b0f4efa1aa3e3f35, type: 3}
+  m_Script: {fileID: 11500000, guid: b54336f6f0443c94ca82fcd3cf346092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tokenCount: 2
 --- !u!114 &400928363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGhost: {fileID: 263784633}
-  timer: {fileID: 400928362}
+  timer: {fileID: 0}
 --- !u!50 &1022479921
 Rigidbody2D:
   serializedVersion: 4
@@ -583,6 +584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfcc09bd5c305144ab13dcd66ddd54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
+  tokenController: {fileID: 400928362}
+  dashState: 0
 --- !u!1 &1154442754
 GameObject:
   m_ObjectHideFlags: 0

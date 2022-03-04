@@ -1,49 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    public float speed = 20f;
+    public TokenController tokenController;
+    public DashState dashState;
+    
     private Rigidbody2D _playerRigidBody;
-    private DashState _dashState;
-    private Vector2 previousVelocity;
+    private Camera _cam;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
+        _cam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (_dashState)
+        switch (dashState)
         {
             case DashState.Ready:
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && tokenController.tokenCount != 0)
                 {
-                    previousVelocity = _playerRigidBody.velocity;
-                    // _playerRigidBody.AddForce(Input.mousePosition);
-                    _playerRigidBody.AddForce(Input.mousePosition,  ForceMode2D.Force);
-                    // _playerRigidBody.velocity =
-                    //     new Vector2(_playerRigidBody.velocity.x * 3f, _playerRigidBody.velocity.y);
-                    // _dashState = DashState.Dashing;
+                    tokenController.UseToken();
+                    var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
+                    Vector3 moveDirection = transform.position - mousePosition;
+                    moveDirection.z = 0;
+                    _playerRigidBody.AddForce(-moveDirection.normalized * speed, ForceMode2D.Impulse);
+
+                    // dashState = DashState.Dashing;
                 }
+
                 break;
             }
             case DashState.Dashing:
             {
-                
                 break;
             }
             case DashState.Cooldown:
             {
-                
                 break;
             }
+            default: throw new ArgumentOutOfRangeException();
         }
-        
     }
 }
 
