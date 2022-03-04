@@ -31,9 +31,11 @@ public class PlayerDash : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (dashState == DashState.Dashing)
+        if (dashState != DashState.Dashing) return;
+        dashState = DashState.Ready;
+        if (col.gameObject.CompareTag("Destructible"))
         {
-            dashState = DashState.Ready;
+            Destroy(col.gameObject);
         }
     }
 }
