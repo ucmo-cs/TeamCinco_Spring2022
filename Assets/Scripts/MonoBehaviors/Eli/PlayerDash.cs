@@ -6,7 +6,7 @@ public class PlayerDash : MonoBehaviour
     public float speed = 20f;
     public TokenController tokenController;
     public DashState dashState;
-    
+
     private Rigidbody2D _playerRigidBody;
     private Camera _cam;
 
@@ -32,7 +32,7 @@ public class PlayerDash : MonoBehaviour
                     moveDirection.z = 0;
                     _playerRigidBody.AddForce(-moveDirection.normalized * speed, ForceMode2D.Impulse);
 
-                    // dashState = DashState.Dashing;
+                    dashState = DashState.Dashing;
                 }
 
                 break;
@@ -46,6 +46,14 @@ public class PlayerDash : MonoBehaviour
                 break;
             }
             default: throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (dashState == DashState.Dashing)
+        {
+            dashState = DashState.Ready;
         }
     }
 }
