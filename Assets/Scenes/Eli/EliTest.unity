@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54336f6f0443c94ca82fcd3cf346092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tokenCount: 2
+  tokenCount: 5
 --- !u!114 &400928363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +408,6 @@ GameObject:
   - component: {fileID: 1022479923}
   - component: {fileID: 1022479922}
   - component: {fileID: 1022479921}
-  - component: {fileID: 1022479920}
   - component: {fileID: 1022479925}
   - component: {fileID: 1022479926}
   m_Layer: 0
@@ -418,20 +417,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1022479920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022479919}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae71811a75d8854c8e2807d4b656862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGhost: {fileID: 263784633}
-  timer: {fileID: 0}
 --- !u!50 &1022479921
 Rigidbody2D:
   serializedVersion: 4
@@ -584,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfcc09bd5c305144ab13dcd66ddd54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   tokenController: {fileID: 400928362}
   dashState: 0
 --- !u!1 &1154442754
@@ -1968,7 +1953,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895441503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4de238cd6783414880121f86de4bb7b, type: 3}
+  m_Script: {fileID: 11500000, guid: bb6fea9b424a447884207ba5076b830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectOfInterest: {fileID: 1022479919}
