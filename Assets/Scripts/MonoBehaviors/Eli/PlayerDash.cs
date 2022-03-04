@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
@@ -18,35 +17,16 @@ public class PlayerDash : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        switch (dashState)
-        {
-            case DashState.Ready:
-            {
-                if (Input.GetMouseButtonDown(0) && tokenController.tokenCount != 0)
-                {
-                    tokenController.UseToken();
-                    var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
-                    Vector3 moveDirection = transform.position - mousePosition;
-                    moveDirection.z = 0;
-                    _playerRigidBody.AddForce(-moveDirection.normalized * speed, ForceMode2D.Impulse);
+        if (dashState != DashState.Ready || !Input.GetMouseButtonDown(0) || tokenController.tokenCount == 0) return;
+        tokenController.UseToken();
+        var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
+        var moveDirection = transform.position - mousePosition;
+        moveDirection.z = 0;
+        _playerRigidBody.AddForce(-moveDirection.normalized * speed, ForceMode2D.Impulse);
 
-                    dashState = DashState.Dashing;
-                }
-
-                break;
-            }
-            case DashState.Dashing:
-            {
-                break;
-            }
-            case DashState.Cooldown:
-            {
-                break;
-            }
-            default: throw new ArgumentOutOfRangeException();
-        }
+        dashState = DashState.Dashing;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -61,6 +41,5 @@ public class PlayerDash : MonoBehaviour
 public enum DashState
 {
     Ready,
-    Dashing,
-    Cooldown
+    Dashing
 }
