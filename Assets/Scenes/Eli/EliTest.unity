@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 169775265}
   - component: {fileID: 169775264}
   m_Layer: 0
-  m_Name: Box (2)
+  m_Name: Box2
   m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1022479926}
 --- !u!50 &169775265
 Rigidbody2D:
   serializedVersion: 4
@@ -300,8 +299,9 @@ Transform:
   - {fileID: 1003860720}
   - {fileID: 1206234434}
   - {fileID: 1595272506}
+  - {fileID: 1713718334}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400928360
 GameObject:
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 461595671}
   - component: {fileID: 461595670}
   m_Layer: 0
-  m_Name: Box (1)
+  m_Name: Box1
   m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1022479926}
 --- !u!50 &461595671
 Rigidbody2D:
   serializedVersion: 4
@@ -631,7 +630,7 @@ GameObject:
   - component: {fileID: 1003860717}
   - component: {fileID: 1003860716}
   m_Layer: 0
-  m_Name: Box (3)
+  m_Name: Box3
   m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,7 +648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1022479926}
 --- !u!50 &1003860717
 Rigidbody2D:
   serializedVersion: 4
@@ -995,7 +993,7 @@ GameObject:
   - component: {fileID: 1206234431}
   - component: {fileID: 1206234430}
   m_Layer: 0
-  m_Name: Box (4)
+  m_Name: Box4
   m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +1011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1022479926}
 --- !u!50 &1206234431
 Rigidbody2D:
   serializedVersion: 4
@@ -2384,7 +2381,7 @@ GameObject:
   - component: {fileID: 1595272503}
   - component: {fileID: 1595272502}
   m_Layer: 0
-  m_Name: Box (5)
+  m_Name: Box5
   m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2402,7 +2399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1022479926}
 --- !u!50 &1595272503
 Rigidbody2D:
   serializedVersion: 4
@@ -2527,27 +2523,13 @@ GameObject:
   - component: {fileID: 1713718333}
   - component: {fileID: 1713718332}
   - component: {fileID: 1713718331}
-  - component: {fileID: 1713718330}
   m_Layer: 0
-  m_Name: Box
-  m_TagString: Untagged
+  m_Name: Box0
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1713718330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713718329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1022479926}
 --- !u!50 &1713718331
 Rigidbody2D:
   serializedVersion: 4
@@ -2653,12 +2635,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713718329}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: 2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 122.05807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 305631420}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895441503
 GameObject:

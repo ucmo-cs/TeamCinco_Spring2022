@@ -25,18 +25,14 @@ public class PlayerDash : MonoBehaviour
         var moveDirection = transform.position - mousePosition;
         moveDirection.z = 0;
         _playerRigidBody.AddForce(-moveDirection.normalized * speed, ForceMode2D.Impulse);
-
         dashState = DashState.Dashing;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (dashState != DashState.Dashing) return;
+        if (col.gameObject.CompareTag("Destructible")) Destroy(col.gameObject);
         dashState = DashState.Ready;
-        if (col.gameObject.CompareTag("Destructible"))
-        {
-            Destroy(col.gameObject);
-        }
     }
 }
 
