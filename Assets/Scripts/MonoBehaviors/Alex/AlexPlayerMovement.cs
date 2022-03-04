@@ -11,15 +11,27 @@ public class AlexPlayerMovement : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private Vector2 _grabPoint;
     private Vector2 _grabPointOffset;
+    private Vector3 oldPos;
     private bool _grabbed;
     private bool _grabbedChanged;
-    private bool _doneWaiting = true;
+    private float totalDistance = 0.0f;
 
     // Start is called before the first frame update
     private void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         playerGhost.gameObject.SetActive(false);
+        oldPos = transform.position;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col) 
+    {
+        Vector3 distanceVector = transform.position - oldPos;
+        if (!timer._doneWaiting)
+        {
+            timer._doneWaiting = timer.UpdateTimer(distanceVector.magnitude);
+            return;
+        }
     }
 
     // Update is called once per frame
@@ -33,9 +45,7 @@ public class AlexPlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
-        if (!_doneWaiting)
-        {
-            _doneWaiting = timer.UpdateTimer();
+        if (!timer._doneWaiting) {
             return;
         }
 
@@ -54,7 +64,7 @@ public class AlexPlayerMovement : MonoBehaviour
         {
             _grabbedChanged = false; // Reset flag.
 
-            if (_grabbed && _doneWaiting) // MOUSE BUTTON DOWN EVENT
+            if (_grabbed && timer._doneWaiting) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
                 _grabPoint = _playerRigidBody.position;
@@ -80,11 +90,11 @@ public class AlexPlayerMovement : MonoBehaviour
 
                 // Hide player ghost
                 playerGhost.gameObject.SetActive(false);
-                _doneWaiting = false;
+                timer._doneWaiting = false;
             }
         }
 
-        if (_grabbed && _doneWaiting) // Behavior while grabbed
+        if (_grabbed && timer._doneWaiting) // Behavior while grabbed
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var currentPosition = playerGhost.GetComponent<Rigidbody2D>().position;
@@ -139,6 +149,6 @@ public class AlexPlayerMovement : MonoBehaviour
 
     public bool IsWaiting()
     {
-        return _doneWaiting;
+        return timer._doneWaiting;
     }
 }
