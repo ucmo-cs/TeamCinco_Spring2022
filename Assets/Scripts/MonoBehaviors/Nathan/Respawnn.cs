@@ -24,6 +24,7 @@ public class Respawnn : MonoBehaviour
         objectRigidBody.velocity = new Vector2();
         objectRigidBody.angularVelocity = 0;
         objectRigidBody.rotation = 0;
+        GetComponent<NathanMovement>().disabled = true;
     }
 
     public void SetRespawnPoint(Vector2 newRespawnPoint)
