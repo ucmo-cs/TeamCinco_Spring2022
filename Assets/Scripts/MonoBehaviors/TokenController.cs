@@ -22,4 +22,10 @@ public class TokenController : MonoBehaviour
         tokenCount--;
         SetTokenText();
     }
+
+    public void AddToken()
+    {
+        tokenCount++;
+        SetTokenText();
+    }
 }
