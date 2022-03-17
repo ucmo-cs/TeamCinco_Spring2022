@@ -14,6 +14,7 @@ public class PlayerFloatingUpDisable : MonoBehaviour
     void Update()
     {
         if(transform.position.y > 10 && transform.position.x > 70) {
+            GetComponent<Respawnn>().enabled = false;
             NathanMovement movement = GetComponent<NathanMovement>();
             movement.disabled = true;
             movement.goRight();
