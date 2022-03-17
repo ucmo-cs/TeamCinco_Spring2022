@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement1 : MonoBehaviour
 {
-    CollectObject collectObject;
+    PlayerJump playerJump;
 
     [SerializeField] private float speed;
     [SerializeField] public float jumpCount;

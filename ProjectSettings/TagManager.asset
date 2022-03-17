@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Destructible
   - Jump Token
   - Coin
   layers:
