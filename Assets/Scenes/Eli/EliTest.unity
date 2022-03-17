@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 169775267}
   - component: {fileID: 169775266}
   - component: {fileID: 169775265}
-  - component: {fileID: 169775264}
   m_Layer: 0
   m_Name: Box2
   m_TagString: Destructible
@@ -143,18 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &169775264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169775263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &169775265
 Rigidbody2D:
   serializedVersion: 4
@@ -408,7 +395,6 @@ GameObject:
   - component: {fileID: 461595673}
   - component: {fileID: 461595672}
   - component: {fileID: 461595671}
-  - component: {fileID: 461595670}
   m_Layer: 0
   m_Name: Box1
   m_TagString: Destructible
@@ -416,18 +402,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &461595670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461595669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &461595671
 Rigidbody2D:
   serializedVersion: 4
@@ -628,7 +602,6 @@ GameObject:
   - component: {fileID: 1003860719}
   - component: {fileID: 1003860718}
   - component: {fileID: 1003860717}
-  - component: {fileID: 1003860716}
   m_Layer: 0
   m_Name: Box3
   m_TagString: Destructible
@@ -636,18 +609,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1003860716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003860715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1003860717
 Rigidbody2D:
   serializedVersion: 4
@@ -774,6 +735,7 @@ GameObject:
   - component: {fileID: 1022479921}
   - component: {fileID: 1022479925}
   - component: {fileID: 1022479926}
+  - component: {fileID: 1022479920}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -781,6 +743,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1022479920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022479919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad809ffefce412546bb4db1fa81fd3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTokens: {fileID: 0}
 --- !u!50 &1022479921
 Rigidbody2D:
   serializedVersion: 4
@@ -991,7 +966,6 @@ GameObject:
   - component: {fileID: 1206234433}
   - component: {fileID: 1206234432}
   - component: {fileID: 1206234431}
-  - component: {fileID: 1206234430}
   m_Layer: 0
   m_Name: Box4
   m_TagString: Destructible
@@ -999,18 +973,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1206234430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206234429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1206234431
 Rigidbody2D:
   serializedVersion: 4
@@ -2379,7 +2341,6 @@ GameObject:
   - component: {fileID: 1595272505}
   - component: {fileID: 1595272504}
   - component: {fileID: 1595272503}
-  - component: {fileID: 1595272502}
   m_Layer: 0
   m_Name: Box5
   m_TagString: Destructible
@@ -2387,18 +2348,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1595272502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595272501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba8d3a4bbd22804298c442876b26180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1595272503
 Rigidbody2D:
   serializedVersion: 4

@@ -7,25 +7,12 @@
 using UnityEngine;
 using TMPro;
 
-public class CollectObject : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
     private int tokens = 0;
 
     public TextMeshProUGUI textTokens;
     //This is used to show the number of jumps a player has on screen.
-
-    private void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.CompareTag("Coin")){
-            tokens++;
-            //This adds one to the players jump counter.
-
-            textTokens.text = tokens.ToString();
-            //This visually shows the players' jump count.
-
-            Destroy(other.gameObject);
-            //This removes the token from the game.
-        }
-    }
 
     private void FixedUpdate(){
         if (Input.GetKeyDown(KeyCode.Space) && tokens != 0)
