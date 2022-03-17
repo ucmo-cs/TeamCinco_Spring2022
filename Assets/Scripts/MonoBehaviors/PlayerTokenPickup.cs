@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerTokenPickup : MonoBehaviour
 {
-    private int tokens = 0;
-
     public TokenController _tokenController;
 
     private void OnTriggerEnter2D(Collider2D other)
