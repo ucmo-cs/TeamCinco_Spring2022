@@ -19,7 +19,7 @@ public class PlayerDash : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (dashState != DashState.Ready || !Input.GetMouseButtonDown(0) || tokenController.tokenCount == 0) return;
+        if (dashState != DashState.Ready || !Input.GetMouseButtonDown(0) || tokenController.HasTokens()) return;
         tokenController.UseToken();
         var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
         var moveDirection = transform.position - mousePosition;

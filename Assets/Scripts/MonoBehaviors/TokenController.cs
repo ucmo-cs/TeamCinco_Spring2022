@@ -17,6 +17,11 @@ public class TokenController : MonoBehaviour
         text.text = tokenCount.ToString();
     }
 
+    public bool HasTokens()
+    {
+        return tokenCount != 0;
+    }
+
     public void UseToken()
     {
         tokenCount--;

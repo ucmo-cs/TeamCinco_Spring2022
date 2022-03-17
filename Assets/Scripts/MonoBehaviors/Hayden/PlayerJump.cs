@@ -4,16 +4,15 @@
 
 //Your actual token will simply be whatever sprite you want it to be.
 
-using System;
 using UnityEngine;
-using TMPro;
+using UnityEngine.Serialization;
 
 public class PlayerJump : MonoBehaviour
 {
     private Rigidbody2D _playerRigidBody;
-    private const float walkingSpeed = 15;
+    private const float WalkingSpeed = 15;
 
-    public TokenController _tokenController;
+    public TokenController tokenController;
     //This is used to show the number of jumps a player has on screen.
 
     private void Start()
@@ -23,9 +22,9 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Space) || _tokenController.tokenCount == 0) return;
+        if (!Input.GetKeyDown(KeyCode.Space) || !tokenController.HasTokens()) return;
         _playerRigidBody.velocity =
-            new Vector2(_playerRigidBody.velocity.x, walkingSpeed / 2); // Tells the diamond to jump.
-        _tokenController.UseToken(); // Decreases the jump counter.
+            new Vector2(_playerRigidBody.velocity.x, WalkingSpeed / 2); // Tells the diamond to jump.
+        tokenController.UseToken(); // Decreases the jump counter.
     }
 }
