@@ -16,12 +16,14 @@ public class AlexCamFollow : MonoBehaviour
         var cameraPos = gameObject.transform.position;
         bool _isGrabbed = objectOfInterest.GetComponent<AlexPlayerMovement>().IsGrabbed();
         bool _isWaiting = objectOfInterest.GetComponent<AlexPlayerMovement>().IsWaiting();
-        if (!_grabbed && _isGrabbed && _isWaiting)
+        // if (!_grabbed && _isGrabbed && _isWaiting)
+        if (!_grabbed)
         {
             _freezePoint = gameObject.transform.position;
             _grabbed = true;
         }
-        else if (_grabbed && !_isGrabbed && !_isWaiting)
+        // else if (_grabbed && !_isGrabbed && !_isWaiting)
+        else if (_grabbed)
         {
             _grabbed = false;
         }

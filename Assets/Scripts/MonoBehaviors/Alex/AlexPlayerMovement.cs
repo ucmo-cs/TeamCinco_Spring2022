@@ -24,15 +24,15 @@ public class AlexPlayerMovement : MonoBehaviour
         oldPos = transform.position;
     }
 
-    private void OnCollisionEnter2D(Collision2D col) 
-    {
-        Vector3 distanceVector = transform.position - oldPos;
-        if (!timer._doneWaiting)
-        {
-            timer._doneWaiting = timer.UpdateTimer(distanceVector.magnitude);
-            return;
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D col) 
+    // {
+    //     Vector3 distanceVector = transform.position - oldPos;
+    //     if (!timer._doneWaiting)
+    //     {
+    //         timer._doneWaiting = timer.UpdateTimer(distanceVector.magnitude);
+    //         return;
+    //     }
+    // }
 
     // Update is called once per frame
     private void Update()
@@ -45,9 +45,9 @@ public class AlexPlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
-        if (!timer._doneWaiting) {
-            return;
-        }
+        // if (!timer._doneWaiting) {
+        //     return;
+        // }
 
         if (!Input.GetMouseButton(0) || _grabbed) return;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -64,7 +64,8 @@ public class AlexPlayerMovement : MonoBehaviour
         {
             _grabbedChanged = false; // Reset flag.
 
-            if (_grabbed && timer._doneWaiting) // MOUSE BUTTON DOWN EVENT
+            // if (_grabbed && timer._doneWaiting) // MOUSE BUTTON DOWN EVENT
+            if (_grabbed) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
                 _grabPoint = _playerRigidBody.position;
@@ -90,11 +91,12 @@ public class AlexPlayerMovement : MonoBehaviour
 
                 // Hide player ghost
                 playerGhost.gameObject.SetActive(false);
-                timer._doneWaiting = false;
+                // timer._doneWaiting = false;
             }
         }
 
-        if (_grabbed && timer._doneWaiting) // Behavior while grabbed
+        // if (_grabbed && timer._doneWaiting) // Behavior while grabbed
+        if (_grabbed) // Behavior while grabbed
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var currentPosition = playerGhost.GetComponent<Rigidbody2D>().position;
