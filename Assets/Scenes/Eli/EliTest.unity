@@ -395,7 +395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 71526471}
   - component: {fileID: 71526473}
-  - component: {fileID: 71526472}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -411,27 +410,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71526470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 6.5, y: 6.5, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 14}
+  m_LocalScale: {x: 10.16, y: 10.16, z: 4}
   m_Children:
   - {fileID: 1049326650}
   - {fileID: 1192987776}
   m_Father: {fileID: 1017754616}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &71526472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71526470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b247499a31a0fb54caf57b1672bd5d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxEffect: 0.3
 --- !u!212 &71526473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1632,7 +1618,6 @@ GameObject:
   m_Component:
   - component: {fileID: 616896176}
   - component: {fileID: 616896178}
-  - component: {fileID: 616896177}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -1648,27 +1633,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616896175}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 6.5, y: 6.5, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 17}
+  m_LocalScale: {x: 12.6, y: 12.6, z: 4}
   m_Children:
   - {fileID: 198608774}
   - {fileID: 1853278653}
   m_Father: {fileID: 1017754616}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &616896177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616896175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b247499a31a0fb54caf57b1672bd5d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxEffect: 0.7
 --- !u!212 &616896178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1730,7 +1702,6 @@ GameObject:
   m_Component:
   - component: {fileID: 726638940}
   - component: {fileID: 726638942}
-  - component: {fileID: 726638941}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
@@ -1746,27 +1717,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726638939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 6.5, y: 6.5, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
+  m_LocalScale: {x: 11.83, y: 11.83, z: 4}
   m_Children:
   - {fileID: 1055353000}
   - {fileID: 2116878118}
   m_Father: {fileID: 1017754616}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &726638941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726638939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b247499a31a0fb54caf57b1672bd5d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxEffect: 0.5
 --- !u!212 &726638942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1924,7 +1882,7 @@ Transform:
   m_Children:
   - {fileID: 851706302}
   m_Father: {fileID: 1895441506}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &785245114
 MonoBehaviour:
@@ -2712,6 +2670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1017754616}
+  - component: {fileID: 1017754617}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2726,17 +2685,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017754615}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1363483827}
   - {fileID: 71526471}
   - {fileID: 726638940}
   - {fileID: 616896176}
-  m_Father: {fileID: 1895441506}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017754617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017754615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b247499a31a0fb54caf57b1672bd5d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1022479919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,7 +2864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022479919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8429385, y: 0.8429385, z: 0.8429385}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3655,7 +3626,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1363483827}
   - component: {fileID: 1363483829}
-  - component: {fileID: 1363483828}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -3671,27 +3641,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363483826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 6.5, y: 6.5, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 12}
+  m_LocalScale: {x: 8.66, y: 8.66, z: 4}
   m_Children:
   - {fileID: 1208563350}
   - {fileID: 1268178590}
   m_Father: {fileID: 1017754616}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1363483828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363483826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b247499a31a0fb54caf57b1672bd5d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxEffect: 0
 --- !u!212 &1363483829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6514,7 +6471,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -6542,7 +6499,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1017754616}
   - {fileID: 785245113}
   m_Father: {fileID: 0}
   m_RootOrder: 0
