@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    public float speed = 15f;
+    public float speed = 2.5f;
     public TokenController tokenController;
     public DashState dashState;
 
@@ -24,7 +24,7 @@ public class PlayerDash : MonoBehaviour
         var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition); 
         var moveDirection = transform.position - mousePosition;
         moveDirection.z = 0;
-        _playerRigidBody.AddForce(-moveDirection.normalized * speed, ForceMode2D.Impulse);
+        _playerRigidBody.AddForce(-moveDirection * speed, ForceMode2D.Impulse);
         dashState = DashState.Dashing;
     }
 
