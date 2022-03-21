@@ -9,7 +9,7 @@ public class Parallax : MonoBehaviour
         _cam = Camera.main;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position = new Vector3(transform.position.x, _cam.transform.position.y, transform.position.z);
     }
