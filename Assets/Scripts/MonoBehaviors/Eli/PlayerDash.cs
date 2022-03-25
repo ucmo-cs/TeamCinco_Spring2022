@@ -21,7 +21,9 @@ public class PlayerDash : MonoBehaviour
         if (dashState != DashState.Ready) return; 
         if (!tokenController.HasTokens()) return; 
         tokenController.UseToken();
-        var mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition); 
+        Vector2 mousePos = Input.mousePosition;
+        //Third value is distance from camera, whitch matters with perspective view. (by default its zero, whitch means it just returns the camera position each time)
+        var mousePosition = _cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
         var moveDirection = transform.position - mousePosition;
         moveDirection.z = 0;
         _playerRigidBody.AddForce(-moveDirection * speed, ForceMode2D.Impulse);
