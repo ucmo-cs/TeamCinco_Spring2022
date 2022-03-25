@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 7117920738472686492}
   - component: {fileID: 3155649992834400901}
   m_Layer: 31
-  m_Name: New Palette
+  m_Name: EliPalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
