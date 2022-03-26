@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EliSpriteAtlas
+  m_Name: GroundAtlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -111,5 +111,5 @@ SpriteAtlas:
   - EliFallTiles_28
   - EliFallTiles_29
   m_RenderDataMap: {}
-  m_Tag: EliSpriteAtlas
+  m_Tag: GroundAtlas
   m_IsVariant: 0
