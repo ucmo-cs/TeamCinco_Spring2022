@@ -1,6 +1,4 @@
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -11,7 +9,8 @@ public class PlayerDash : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private Camera _cam;
 
-    public ParticleSystem particles;
+    public ParticleSystem dashParticles;
+    public ParticleSystem breakParticles;
 
     private void Start()
     {
@@ -34,7 +33,7 @@ public class PlayerDash : MonoBehaviour
         moveDirection.z = 0;
         
         _playerRigidBody.AddForce(-moveDirection * speed, ForceMode2D.Impulse);
-        Instantiate(particles, transform.position, Quaternion.LookRotation(moveDirection)).Play();
+        Instantiate(dashParticles, transform.position, Quaternion.LookRotation(moveDirection)).Play();
         
         dashState = DashState.Dashing;
     }
@@ -42,8 +41,12 @@ public class PlayerDash : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (dashState != DashState.Dashing) return;
-        if (col.gameObject.CompareTag("Destructible")) Destroy(col.gameObject);
-        particles.Stop();
+        if (col.gameObject.CompareTag("Destructible"))
+        {
+            Instantiate(breakParticles, col.gameObject.transform.position, col.gameObject.transform.rotation).Play();
+            Destroy(col.gameObject);
+        }
+
         dashState = DashState.Ready;
     }
 }
