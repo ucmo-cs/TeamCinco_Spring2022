@@ -1,4 +1,6 @@
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class PlayerDash : MonoBehaviour
 
     private Rigidbody2D _playerRigidBody;
     private Camera _cam;
+
+    public ParticleSystem particles;
 
     private void Start()
     {
@@ -19,14 +23,19 @@ public class PlayerDash : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0)) return; // can't use OnMouseDown, that only triggers when inside collider
         if (dashState != DashState.Ready) return; 
-        if (!tokenController.HasTokens()) return; 
+        if (!tokenController.HasTokens()) return;
+        
         tokenController.UseToken();
         Vector2 mousePos = Input.mousePosition;
-        //Third value is distance from camera, whitch matters with perspective view. (by default its zero, whitch means it just returns the camera position each time)
+        
+        //Third value is distance from camera, which matters with perspective view. (by default its zero, which means it just returns the camera position each time)
         var mousePosition = _cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
         var moveDirection = transform.position - mousePosition;
         moveDirection.z = 0;
+        
         _playerRigidBody.AddForce(-moveDirection * speed, ForceMode2D.Impulse);
+        Instantiate(particles, transform.position, Quaternion.LookRotation(moveDirection)).Play();
+        
         dashState = DashState.Dashing;
     }
 
@@ -34,6 +43,7 @@ public class PlayerDash : MonoBehaviour
     {
         if (dashState != DashState.Dashing) return;
         if (col.gameObject.CompareTag("Destructible")) Destroy(col.gameObject);
+        particles.Stop();
         dashState = DashState.Ready;
     }
 }
