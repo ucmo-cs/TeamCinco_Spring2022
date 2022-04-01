@@ -8,13 +8,10 @@ public class PauseMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PauseMenu.PAUSED && !pause) {
-            GetComponent<AudioSource>().Pause();
-            pause = true;
-        }
-        if(!PauseMenu.PAUSED && pause) {
-            GetComponent<AudioSource>().Play();
-            pause = false;
+        if(PauseMenu.PAUSED != pause) {
+            pause = !pause;
+            if(pause) GetComponent<AudioSource>().Pause();
+            else GetComponent<AudioSource>().Play();
         }
     }
 }
