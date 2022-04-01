@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GroundAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 5004070877919626239, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -3418840752931531682, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -2230434674375508998, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -2492455273478423426, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 2519146608759079111, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -6820884582017090880, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -6678360460889431061, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -1881411064464592995, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 2544930187337699569, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 5573785703472160195, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -1017116462548171794, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 1619970294478478682, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -1342290190007091872, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 5883496790910736881, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 1723968588308033249, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -3631506310894144007, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 305210222285372410, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -3629910519778393994, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 8204411303410735136, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 899210241446629003, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 1982923324186693137, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 6702391398305905642, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -2941462448550030642, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -6446346507653598108, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -5139741670265920454, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -740622170236770193, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -8128167293948104937, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: -6558846284479131329, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 8252993169415539480, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  - {fileID: 1455900242770861696, guid: e25dedb973fbd7145ac79b5c794ef0df, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - EliFallTiles_19
+  - EliFallTiles_18
+  - EliFallTiles_17
+  - EliFallTiles_16
+  - EliFallTiles_15
+  - EliFallTiles_14
+  - EliFallTiles_13
+  - EliFallTiles_12
+  - EliFallTiles_11
+  - EliFallTiles_10
+  - EliFallTiles_4
+  - EliFallTiles_5
+  - EliFallTiles_6
+  - EliFallTiles_7
+  - EliFallTiles_0
+  - EliFallTiles_1
+  - EliFallTiles_2
+  - EliFallTiles_3
+  - EliFallTiles_8
+  - EliFallTiles_9
+  - EliFallTiles_22
+  - EliFallTiles_23
+  - EliFallTiles_20
+  - EliFallTiles_21
+  - EliFallTiles_26
+  - EliFallTiles_27
+  - EliFallTiles_24
+  - EliFallTiles_25
+  - EliFallTiles_28
+  - EliFallTiles_29
+  m_RenderDataMap: {}
+  m_Tag: GroundAtlas
+  m_IsVariant: 0
