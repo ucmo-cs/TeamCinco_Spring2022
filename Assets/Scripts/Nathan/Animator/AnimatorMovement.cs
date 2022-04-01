@@ -12,7 +12,7 @@ public class AnimatorMovement : MonoBehaviour
     private Rigidbody2D playerGhostRigidBody;
     private Vector2 grabPoint;
     private Vector2 grabPointOffset;
-    private bool grabbedChanged;
+    private bool grabFlag;
     //private bool grabbed;    <--- this is now be an animator controlled variable instead.
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class AnimatorMovement : MonoBehaviour
         {
             // Disable grab
             animator.SetBool("Grabbed", false);
-            grabbedChanged = true;
+            grabFlag = true;
         }
 
         if (Input.GetMouseButton(0) && !animator.GetBool("Grabbed")) {
@@ -41,7 +41,7 @@ public class AnimatorMovement : MonoBehaviour
             if (Vector2.Distance(playerRigidBody.position, mousePosition) < .5) {  // Grab player if mouse is within a certain distance of player.
                 // Activate grab
                 animator.SetBool("Grabbed", true);
-                grabbedChanged = true;
+                grabFlag = true;
             }
         }
     }
@@ -50,9 +50,9 @@ public class AnimatorMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
-        if (grabbedChanged) // One time flag for when grab state changes.
+        if (grabFlag) // One time flag for when grab state changes.
         {
-            grabbedChanged = false; // Reset flag.
+            grabFlag = false; // Reset flag.
 
             if (animator.GetBool("Grabbed")) // MOUSE BUTTON DOWN EVENT
             {
