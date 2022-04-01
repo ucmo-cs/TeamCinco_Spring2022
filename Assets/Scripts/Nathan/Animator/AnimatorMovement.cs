@@ -7,40 +7,40 @@ public class AnimatorMovement : MonoBehaviour
     const float walkingSpinSpeed = 8000;
     const float walkingSpeed = 15;
 
-    private Animator animator;
-    private Rigidbody2D playerRigidBody;
-    private Rigidbody2D playerGhostRigidBody;
-    private Vector2 grabPoint;
-    private Vector2 grabPointOffset;
-    private bool grabFlag;
-    //private bool grabbed;    <--- this is now be an animator controlled variable instead.
+    Animator animator;
+    Rigidbody2D playerRigidBody;
+    Rigidbody2D playerGhostRigidBody;
+    Vector2 grabPoint;
+    Vector2 grabPointOffset;
+    bool grabFlag;
+    static readonly int grabbed = Animator.StringToHash("Grabbed");
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         animator = GetComponent<Animator>();
-
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerGhostRigidBody = playerGhost.GetComponent<Rigidbody2D>();
+        
         playerGhost.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
         // Capture input on a per-frame basis.
         if (Input.GetMouseButtonUp(0))
         {
             // Disable grab
-            animator.SetBool("Grabbed", false);
+            animator.SetBool(grabbed, false);
             grabFlag = true;
         }
 
-        if (Input.GetMouseButton(0) && !animator.GetBool("Grabbed")) {
+        if (Input.GetMouseButton(0) && !animator.GetBool(grabbed)) {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
             if (Vector2.Distance(playerRigidBody.position, mousePosition) < .5) {  // Grab player if mouse is within a certain distance of player.
                 // Activate grab
-                animator.SetBool("Grabbed", true);
+                animator.SetBool(grabbed, true);
                 grabFlag = true;
             }
         }
@@ -54,7 +54,7 @@ public class AnimatorMovement : MonoBehaviour
         {
             grabFlag = false; // Reset flag.
 
-            if (animator.GetBool("Grabbed")) // MOUSE BUTTON DOWN EVENT
+            if (animator.GetBool(grabbed)) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
                 grabPoint = playerRigidBody.position;
@@ -83,7 +83,7 @@ public class AnimatorMovement : MonoBehaviour
             }
         }
 
-        if (animator.GetBool("Grabbed")) // Behavior while grabbed
+        if (animator.GetBool(grabbed)) // Behavior while grabbed
         {
             var currentPosition = playerGhostRigidBody.position;
             var targetPosition = mousePosition - grabPointOffset;
