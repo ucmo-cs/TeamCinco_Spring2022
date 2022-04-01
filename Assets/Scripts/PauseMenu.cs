@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -16,16 +14,16 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume() {
-        pauseUI.SetActive(false);
-        Time.timeScale = 1f;
-        PAUSED = false;
-    }
-
     void Pause() {
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
         PAUSED = true;
+    }
+
+    public void Resume() {
+        pauseUI.SetActive(false);
+        Time.timeScale = 1f;
+        PAUSED = false;
     }
 
     public void Exit() {
