@@ -6,7 +6,7 @@ public class AlexCheckpointZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D targetObj)
     {
         if (targetObj.gameObject != player) return;
-        Vector2 _respawnPoint = player.transform.position;
-        player.GetComponent<AlexRespawnScript>().SetRespawnPoint(_respawnPoint);
+        Vector2 respawnPoint = player.transform.position;
+        player.GetComponent<AlexRespawnScript>().SetRespawnPoint(respawnPoint);
     }
 }
