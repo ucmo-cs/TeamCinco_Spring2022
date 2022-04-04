@@ -7,6 +7,9 @@ TagManager:
   - Destructible
   - Jump Token
   - Coin
+  - Dash Token
+  - Ground
+  - Teleporter
   layers:
   - Default
   - TransparentFX
