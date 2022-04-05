@@ -21,13 +21,15 @@ public class AlexCamFollow : MonoBehaviour
         Vector2 objPos = objectOfInterest.transform.position;
         var cameraPos = gameObject.transform.position;
         bool _isGrabbed = objectOfInterest.GetComponent<AlexPlayerMovement>().IsGrabbed();
-        bool _isWaiting = objectOfInterest.GetComponent<AlexPlayerMovement>().IsWaiting();
+        //Saving for Level 2
+        // bool _isWaiting = objectOfInterest.GetComponent<AlexPlayerMovement>().IsWaiting();
         // if (!_grabbed && _isGrabbed && _isWaiting)
         if (!_grabbed)
         {
             _freezePoint = gameObject.transform.position;
             _grabbed = true;
         }
+        //Saving for Level 2
         // else if (_grabbed && !_isGrabbed && !_isWaiting)
         else if (_grabbed)
         {
