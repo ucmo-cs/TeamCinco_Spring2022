@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: ff17c68cd8dea9c4b99d8941d92ce176
+guid: d67a195948b85e74083e63df06dd9314
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -28,7 +28,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: 1
+  textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
@@ -74,14 +74,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4cd4685d60dbb1944804148500c0e2f0
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

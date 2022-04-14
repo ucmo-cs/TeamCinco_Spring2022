@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Respawnn : MonoBehaviour
+public class NathanLV1Respawn : MonoBehaviour
 {
     private Rigidbody2D objectRigidBody;
     public Vector2 respawnPoint = new Vector2(0, 0);
