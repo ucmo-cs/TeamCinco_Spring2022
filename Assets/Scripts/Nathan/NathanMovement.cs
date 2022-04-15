@@ -31,7 +31,7 @@ public class NathanMovement : MonoBehaviour
                 {
                     goLeft();
                 }
-                else if (Input.GetKey(KeyCode.D)) // RIGHT
+                if (Input.GetKey(KeyCode.D)) // RIGHT
                 {
                     goRight();
                 }
