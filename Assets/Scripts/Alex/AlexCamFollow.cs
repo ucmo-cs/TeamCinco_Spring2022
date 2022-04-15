@@ -26,7 +26,7 @@ public class AlexCamFollow : MonoBehaviour
         if (!_grabbed) _freezePoint = gameObject.transform.position;
         _grabbed = !_grabbed;
         
-        Vector2 mouseDistance = cam.ScreenToWorldPoint(Input.mousePosition) - cameraPos;
+        Vector2 mouseDistance = _grabbed ? cam.ScreenToWorldPoint(Input.mousePosition) - cameraPos : new Vector3();
         var targetX = _grabbed ? _freezePoint.x + mouseDistance.x / 10 : objPos.x;
         var targetY = _grabbed ? _freezePoint.y + mouseDistance.y / 10 : objPos.y;
         var xDif = (targetX - cameraPos.x) * Time.deltaTime * 10;
