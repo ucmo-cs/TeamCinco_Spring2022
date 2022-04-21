@@ -9,7 +9,7 @@ public class LegMover : MonoBehaviour
     public float moveDistance;
     public LayerMask groundLayer;
 
-    bool moving;
+    //bool moving;
     Vector3 startPos;
 
     // Movement speed in units per second.
@@ -27,7 +27,7 @@ public class LegMover : MonoBehaviour
         checkGround();
 
         if(Vector2.Distance(limbSolverTarget.position,transform.position) > moveDistance){
-            moving = true;
+            //moving = true;
             //startPos = limbSolverTarget.position;
             limbSolverTarget.position = transform.position;
         }
