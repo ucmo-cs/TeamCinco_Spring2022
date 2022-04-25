@@ -8,12 +8,8 @@ public class LegMover : MonoBehaviour
     public Transform limbSolverTarget;
     public float moveDistance;
     public LayerMask groundLayer;
-
-    //bool moving;
-    Vector3 startPos;
-
-    // Movement speed in units per second.
-    public float speed = 1.0F;
+    Vector2 start;
+    Vector2 target;
 
     // Time when the movement started.
     private float startTime;
@@ -21,26 +17,27 @@ public class LegMover : MonoBehaviour
     // Total distance between the markers.
     private float journeyLength;
 
+    void Start() {
+        start = limbSolverTarget.position;
+        target = limbSolverTarget.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
         checkGround();
 
         if(Vector2.Distance(limbSolverTarget.position,transform.position) > moveDistance){
-            //moving = true;
-            //startPos = limbSolverTarget.position;
-            limbSolverTarget.position = transform.position;
+            start = limbSolverTarget.position;
+            target = transform.position;
         }
-        // if (moving) {
-        //     // Distance moved equals elapsed time times speed..
-        //     float distCovered = (Time.time - startTime) * speed;
+    }
 
-        //     // Fraction of journey completed equals current distance divided by total distance.
-        //     float fractionOfJourney = distCovered / journeyLength;
-
-        //     // Set our position as a fraction of the distance between the markers.
-        //     limbSolverTarget.position = Vector3.Lerp(startPos, transform.position, fractionOfJourney);
-        // }
+    void FixedUpdate() {
+        limbSolverTarget.position = (Vector2)limbSolverTarget.position + (target-(Vector2)limbSolverTarget.position)/2.5f;
+        // Gets the relative distance from the current position of the leg and the nearest start/stop point. (Value will be highest during the middle of a step.)
+        var y = ((target.x-start.x)/2f)-Mathf.Abs((start.x+((target.x-start.x)/2f))-limbSolverTarget.position.x);
+        limbSolverTarget.position = new Vector2(limbSolverTarget.position.x,limbSolverTarget.position.y+y);
     }
 
     void checkGround() {

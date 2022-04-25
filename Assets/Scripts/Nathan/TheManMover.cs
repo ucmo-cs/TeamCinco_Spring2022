@@ -13,6 +13,7 @@ public class TheManMover : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if(horizontalMove < 0) horizontalMove = 0;
 
         if (Input.GetButtonDown("Jump")){
             jump = true;
