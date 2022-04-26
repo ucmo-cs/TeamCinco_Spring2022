@@ -10,6 +10,9 @@ public class LegMover : MonoBehaviour
     public LayerMask groundLayer;
     Vector2 start;
     Vector2 target;
+    bool grounded;
+
+    public AudioClip sfx;
 
     // Time when the movement started.
     private float startTime;
@@ -27,8 +30,12 @@ public class LegMover : MonoBehaviour
     {
         checkGround();
 
-        if(Vector2.Distance(limbSolverTarget.position,transform.position) > moveDistance){
+        if(Vector2.Distance(target,transform.position) > moveDistance && grounded){
             start = limbSolverTarget.position;
+            target = transform.position;
+            AudioSource.PlayClipAtPoint(sfx,transform.position);
+        }
+        if (!grounded) {
             target = transform.position;
         }
     }
@@ -41,11 +48,14 @@ public class LegMover : MonoBehaviour
     }
 
     void checkGround() {
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Vector3.down, 5, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Vector3.down, .5f, groundLayer);
         if(hit.collider != null) {
+            grounded = true;
             Vector3 point = hit.point; // gets pos where leg hit something
             point.y += 0.1f;
             transform.position = point;
+        } else {
+            grounded = false;
         }
     }
 }
