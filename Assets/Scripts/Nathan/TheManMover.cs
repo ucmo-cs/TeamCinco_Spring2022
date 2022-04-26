@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TheManMover : MonoBehaviour
 {
@@ -21,7 +22,10 @@ public class TheManMover : MonoBehaviour
         if (Input.GetButtonDown("Jump")){
             jump = true;
         }
-
+        if (transform.position.y < -60) //death zone dead become daed
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
     
     void FixedUpdate() {

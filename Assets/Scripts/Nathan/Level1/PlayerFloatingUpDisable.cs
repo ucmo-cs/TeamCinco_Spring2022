@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerFloatingUpDisable : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class PlayerFloatingUpDisable : MonoBehaviour
             NathanMovement movement = GetComponent<NathanMovement>();
             movement.disabled = true;
             movement.goRight();
+        }
+        if(transform.position.y > 200) {
+            SceneManager.LoadScene("MovieTransition1");
         }
     }
 }
