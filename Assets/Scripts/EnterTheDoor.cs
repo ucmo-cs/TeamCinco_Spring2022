@@ -36,9 +36,9 @@ public class EnterTheDoor : MonoBehaviour
             foreach (AudioSource sound in soundsToQuiet) {
                 sound.volume = 1-value;
             }
+            blackScreen.color = new Color(0f, 0f, 0f, value/2);
         }
         
-        blackScreen.color = new Color(0f, 0f, 0f, value/2);
         if(value > .5f && (!spaceClicked && Input.GetButtonDown("Jump"))){
             spaceClicked = true;
             Time.timeScale = 0f;
