@@ -4,7 +4,7 @@ using System;
 
 public class LevelTransition : MonoBehaviour
 {
-    public int nextLevel;
+    public string nextLevel;
     public GameObject player;
 
     private void OnTriggerEnter2D(Collider2D other)

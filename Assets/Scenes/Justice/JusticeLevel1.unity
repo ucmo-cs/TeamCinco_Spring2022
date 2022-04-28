@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33011c9094073e47a037080f0947822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: 4
+  nextLevel: JusticeLevel2
   player: {fileID: 954872633}
 --- !u!61 &348857316
 BoxCollider2D:
