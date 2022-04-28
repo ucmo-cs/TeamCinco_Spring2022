@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AlexPlayerMovement : MonoBehaviour
+public class AlexPlayerMovement2 : MonoBehaviour
 {
     public GameObject playerGhost;
 
@@ -9,29 +9,16 @@ public class AlexPlayerMovement : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private Vector2 _grabPoint;
     private Vector2 _grabPointOffset;
-    private Vector3 oldPos;
     private bool _grabbed;
     private bool _grabbedChanged;
-    //private float totalDistance = 0.0f;
+    public int throwCount = 1;
+    public int CPthrowCount = 0;
 
-    // Start is called before the first frame update
     private void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         playerGhost.gameObject.SetActive(false);
-        oldPos = transform.position;
     }
-
-    //Saving for Level 2
-    // private void OnCollisionEnter2D(Collision2D col) 
-    // {
-    //     Vector3 distanceVector = transform.position - oldPos;
-    //     if (!timer._doneWaiting)
-    //     {
-    //         timer._doneWaiting = timer.UpdateTimer(distanceVector.magnitude);
-    //         return;
-    //     }
-    // }
 
     // Update is called once per frame
     private void Update()
@@ -44,10 +31,10 @@ public class AlexPlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
-        //Saving for Level 2
-        // if (!timer._doneWaiting) {
-        //     return;
-        // }
+        if (throwCount == 0)
+        {
+            return;
+        }
 
         if (!Input.GetMouseButton(0) || _grabbed) return;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -55,6 +42,8 @@ public class AlexPlayerMovement : MonoBehaviour
         // Activate grab
         _grabbed = true;
         _grabbedChanged = true;
+        throwCount -= 1;
+        timer.UpdateTimer(throwCount);
     }
 
     // FixedUpdate is called once per physics step
@@ -64,8 +53,6 @@ public class AlexPlayerMovement : MonoBehaviour
         {
             _grabbedChanged = false; // Reset flag.
 
-            //Saving for Level 2
-            // if (_grabbed && timer._doneWaiting) // MOUSE BUTTON DOWN EVENT
             if (_grabbed) // MOUSE BUTTON DOWN EVENT
             {
                 // Save current grab position
@@ -97,8 +84,6 @@ public class AlexPlayerMovement : MonoBehaviour
             }
         }
 
-        //Saving for Level 2
-        // if (_grabbed && timer._doneWaiting) // Behavior while grabbed
         if (_grabbed) // Behavior while grabbed
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -146,15 +131,21 @@ public class AlexPlayerMovement : MonoBehaviour
             }
         }
     }
-    
-    public bool IsGrabbed()
+    public void UpdateThrows()
     {
-        return _grabbed;
+        throwCount++;
+        timer.UpdateTimer(throwCount);
     }
 
-    //Saving for Level 2
-    // public bool IsWaiting()
-    // {
-    //     return timer._doneWaiting;
-    // }
+    public void SetCpThrows(int num)
+    {
+        CPthrowCount = num;
+    }
+
+    public void ResetThrows()
+    {
+        throwCount = CPthrowCount;
+        throwCount--;
+        UpdateThrows();
+    }
 }

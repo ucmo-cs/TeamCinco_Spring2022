@@ -1,18 +1,21 @@
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class AlexRespawnCoin : MonoBehaviour
 {
-    public void Update()
+    public GameObject player;
+    private void OnTriggerEnter2D(Collider2D targetObj)
     {
-        if(Input.GetKeyDown(KeyCode.R)){
-            Respawn();
-        }
-        //This handles a voluntary respawn.
+        if (targetObj.gameObject != player) return;
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        player.GetComponent<AlexPlayerMovement2>().UpdateThrows();
     }
 
-    public void Respawn(){
-        this.GetComponent<Renderer>().enabled = true;
-        this.GetComponent<Collider2D>().enabled = true;
+    public void Respawn()
+    {
+        GetComponent<Renderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
     }
-    //This tells the coin to reappear and become "active" during a respawn.
 }
