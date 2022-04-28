@@ -14,7 +14,7 @@ public class AlexPlayerMovement : MonoBehaviour
     private Vector3 oldPos;
     private bool _grabbed;
     private bool _grabbedChanged;
-    private float totalDistance = 0.0f;
+    //private float totalDistance = 0.0f;
 
     // Start is called before the first frame update
     private void Start()
