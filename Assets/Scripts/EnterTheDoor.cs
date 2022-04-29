@@ -27,7 +27,7 @@ public class EnterTheDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var value = 1f - Vector2.Distance(transform.position, objectOfInterest.transform.position) / 3;
+        var value = 1.5f - Vector2.Distance(transform.position, objectOfInterest.transform.position) / 3;
         if (value < 0) value = 0;
         if (value > 1) value = 1;
         
@@ -39,7 +39,7 @@ public class EnterTheDoor : MonoBehaviour
             blackScreen.color = new Color(0f, 0f, 0f, value/2);
         }
         
-        if(value > .5f && (!spaceClicked && Input.GetButtonDown("Jump"))){
+        if(value == 1 && (!spaceClicked && Input.GetButtonDown("Jump"))){
             spaceClicked = true;
             Time.timeScale = 0f;
             music.volume = 0;
