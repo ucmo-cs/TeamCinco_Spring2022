@@ -26,6 +26,6 @@ public class AlexEndZone : MonoBehaviour
     IEnumerator WaitCoroutine()
     {
         yield return new WaitForSeconds(1.75f);
-        SceneManager.LoadScene("Scenes/Alex/Level 2");
+        SceneManager.LoadScene("Alex Level 2");
     }
 }
