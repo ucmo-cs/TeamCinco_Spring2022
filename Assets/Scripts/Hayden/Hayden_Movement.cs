@@ -1,5 +1,5 @@
 //Hayden White
-//Last Update: April 4th, 2022
+//Last Update: April 29th, 2022
 //This is the movement script for my first level.
 
 //If you see GFZ, that is in reference to a Gravity-Flippable Zone.
@@ -14,8 +14,6 @@ public class Hayden_Movement : MonoBehaviour
 
     public bool flipGrav = false;
 
-    public bool grounded;
-
     [SerializeField] public int jumpCount = 0;
     //This is serialized so I can make sure the jump count is being tallied accurately.
 
@@ -24,14 +22,25 @@ public class Hayden_Movement : MonoBehaviour
 
     public TextMeshProUGUI textTokens;
 
+    public LayerMask mask;
+
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
+
+        mask = LayerMask.GetMask("Ground");
     }
 
     private void Update()
     {
         const float walkingSpeed = 15;
+
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1f, transform.TransformDirection(Vector2.down), 1f, mask);
+        
+        if(hit)
+        {
+            Debug.Log("Hit Something: " + hit.collider.name);
+        }
         
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0)
         {
@@ -52,7 +61,7 @@ public class Hayden_Movement : MonoBehaviour
             textTokens.text = jumpCount.ToString();
         }
 
-        if(Input.GetMouseButtonDown(0) && flipGrav && grounded)
+        if(Input.GetMouseButtonDown(0) && flipGrav && hit)
         {
             player.gravityScale *= -1;
             //This is what actually flips the gravity.
@@ -139,13 +148,16 @@ public class Hayden_Movement : MonoBehaviour
         }
         //This determines if the player entered a zone where they can invert gravity.
 
-        /*if(other.gameObject.CompareTag("Checkpoint"))
+        if(other.gameObject.CompareTag("CP"))
         {
             CPjumpCount = jumpCount;
-        }*/
+        }
         //This updates the players' accumulated jump count when they hit a checkpoint.
 
-        
+        if(other.gameObject.CompareTag("Destructible"))
+        {
+            other.GetComponent<Renderer>().enabled = false;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D other)
@@ -159,24 +171,30 @@ public class Hayden_Movement : MonoBehaviour
             //This resets the player's gravity to normal.
         }
         //This checks if the player is leaving a GFZ.
+
+        if(other.gameObject.CompareTag("CP"))
+        {
+             other.GetComponent<Animator>().Play("Checkpoint");
+        }
+
+        if(other.gameObject.CompareTag("Destructible"))
+        {
+            other.GetComponent<Renderer>().enabled = true;
+        }
     }
     //This handles the player leaving a GFZ.
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Death_Zone"))
+        if(other.gameObject.CompareTag("Death_Zone") || other.gameObject.CompareTag("Saw") || other.gameObject.CompareTag("Stalagtite") || other.gameObject.CompareTag("Axe"))
         {
             jumpCount = CPjumpCount;
+            textTokens.text = jumpCount.ToString();
         }
         //This resets the players' jump count to the amount they had when they reached the previous checkpoint.
-    
-        if(other.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
-        }
     }
 
-    public void OnCollisionExit2D(Collision2D other)
+    /*public void OnCollisionExit2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Ground"))
         {
@@ -184,5 +202,5 @@ public class Hayden_Movement : MonoBehaviour
 
             grounded = false;
         }
-    }
+    }*/
 }

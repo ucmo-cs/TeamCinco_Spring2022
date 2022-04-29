@@ -3,39 +3,17 @@ using UnityEngine.UI;
 
 public class AlexCooldownTimer : MonoBehaviour
 {
-    private float totalDistance = 0.0f;
-    private int timer = 5;
-    private static float distanceGoal = 200.0f;
-    private float nextMilestone = distanceGoal / 5;
-    public bool _doneWaiting = true;
-
     // Start is called before the first frame update
     private void Start()
     {
         var text = GetComponent<Text>();
+        var timer = 1;
         text.text = timer.ToString();
     }
-
-    //Saving for Level 2
-    public bool UpdateTimer(float distanceThisFrame)
+    public void UpdateTimer(int num)
     {
+        if (num < 0) num = 0;
         var text = GetComponent<Text>();
-        if (totalDistance < distanceGoal)
-        {
-            totalDistance += distanceThisFrame;
-            Debug.Log(totalDistance);
-            if (totalDistance > nextMilestone)
-            {
-                nextMilestone += distanceGoal / 5;
-                timer -= 1;
-            }
-            text.text = timer.ToString();
-            return false;
-        }
-
-        totalDistance = 0.0f;
-        timer = 5;
-        text.text = timer.ToString();
-        return true;
+        text.text = num.ToString();
     }
 }

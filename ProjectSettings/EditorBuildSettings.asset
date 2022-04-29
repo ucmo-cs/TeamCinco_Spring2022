@@ -20,12 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MovieTransition1.unity
     guid: 7ab06fb6ae2d90941bfef8b9b56be709
-  - enabled: 0
-    path: Assets/Scenes/_OLD/AnchorBasedSwinging.unity
-    guid: 60f931a8171dc9a47967e79ce5cc04d7
-  - enabled: 0
-    path: Assets/Scenes/_OLD/FreeSwinging.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Justice/JusticeLevel1.unity
     guid: 629347f86018d1c4a95bb243ca017855
@@ -35,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Justice/JusticeLevel3.unity
     guid: 6a1a07e777ca5ec4c8f2141a18f73861
+  - enabled: 1
+    path: Assets/Scenes/Hayden/Hayden Level 1.unity
+    guid: 80ca6d1be725f5f4aafdf26e231424f7
+  - enabled: 1
+    path: Assets/Scenes/Hayden/Hayden Level 2.unity
+    guid: c5a7307134f2da340864f1a7202f2501
+  - enabled: 1
+    path: Assets/Scenes/Alex/Alex Level 1.unity
+    guid: 4996eb36f34744bf897599eea5114e3b
+  - enabled: 1
+    path: Assets/Scenes/Alex/Alex Level 2.unity
+    guid: 97674409bad5f467fa0223cf732dcd65
   m_configObjects: {}
