@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27df6de62a727c4cbdbb52dbabdc8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToChangeTo: Level 1
+  sceneToChangeTo: Eli Level 1
   blackScreen: {fileID: 2066705911}
   objectOfInterest: {fileID: 127291442}
   doorSound: {fileID: 8300000, guid: 0ed9de5204c2782448dbbdcab94e233f, type: 3}
@@ -5958,8 +5958,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000298101}
-  m_LocalRotation: {x: -0.008130424, y: 0.01219846, z: 0.00033866687, w: 0.99989253}
-  m_LocalPosition: {x: 2.126112, y: -2.1626737, z: -9.995702}
+  m_LocalRotation: {x: -0.0081370445, y: 0.012208382, z: 0.0003389427, w: 0.99989235}
+  m_LocalPosition: {x: 2.1259136, y: -2.162806, z: -9.995694}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1058730152}
@@ -6404,7 +6404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083333090}
   m_LocalRotation: {x: -0.00000008940697, y: 0.00000013411045, z: 0.0000000037241144, w: 1}
-  m_LocalPosition: {x: -0.94855714, y: 1.7908769, z: -2.155449}
+  m_LocalPosition: {x: -0.94855714, y: 1.7908771, z: -2.155448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1622465418}
