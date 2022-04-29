@@ -18805,7 +18805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToDetect: {fileID: 224307900105237325}
   detectRadius: 8.5
-  sceneToLoad: NathanLevel1
+  sceneToLoad: Credits
   portalSound: {fileID: 8300000, guid: ffb3cb9252dc19848aa8a973d9900073, type: 3}
 --- !u!4 &1226365714
 Transform:
