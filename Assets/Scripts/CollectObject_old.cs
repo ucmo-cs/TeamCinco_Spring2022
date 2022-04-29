@@ -7,7 +7,7 @@
 using UnityEngine;
 using TMPro;
 
-public class CollectObject : MonoBehaviour
+public class CollectObject_old : MonoBehaviour
 {
     private int tokens = 0;
 
