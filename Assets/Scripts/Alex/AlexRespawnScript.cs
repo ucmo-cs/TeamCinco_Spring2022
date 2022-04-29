@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AlexRespawnScript : MonoBehaviour
 {
@@ -12,12 +13,26 @@ public class AlexRespawnScript : MonoBehaviour
         _respawnPoint = _objectRigidBody.transform.position;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reset();
+        }
+    }
+
     public void Respawn()
     {
         _objectRigidBody.transform.position = _respawnPoint;
         _objectRigidBody.velocity = new Vector2();
         _objectRigidBody.angularVelocity = 0;
         _objectRigidBody.rotation = 0;
+    }
+
+    public void Reset()
+    {
+        Scene thisScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(thisScene.name);
     }
 
     public void SetRespawnPoint(Vector2 newRespawnPoint)
