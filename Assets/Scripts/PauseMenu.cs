@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool PAUSED = false;
     public GameObject pauseUI;
+
+    void Start() {
+        PAUSED = false;
+        pauseUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,10 +34,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Exit() {
-        
+        Application.Quit();
     }
 
-    public void Options() {
-
+    public void ReturnToHub() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("HubWorld");
     }
 }

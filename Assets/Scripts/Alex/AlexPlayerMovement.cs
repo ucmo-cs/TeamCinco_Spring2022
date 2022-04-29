@@ -14,7 +14,7 @@ public class AlexPlayerMovement : MonoBehaviour
     private Vector3 oldPos;
     private bool _grabbed;
     private bool _grabbedChanged;
-    private float totalDistance = 0.0f;
+    //private float totalDistance = 0.0f;
 
     // Start is called before the first frame update
     private void Start()
@@ -24,6 +24,7 @@ public class AlexPlayerMovement : MonoBehaviour
         oldPos = transform.position;
     }
 
+    //Saving for Level 2
     // private void OnCollisionEnter2D(Collision2D col) 
     // {
     //     Vector3 distanceVector = transform.position - oldPos;
@@ -45,6 +46,7 @@ public class AlexPlayerMovement : MonoBehaviour
             _grabbedChanged = true;
         }
 
+        //Saving for Level 2
         // if (!timer._doneWaiting) {
         //     return;
         // }
@@ -64,6 +66,7 @@ public class AlexPlayerMovement : MonoBehaviour
         {
             _grabbedChanged = false; // Reset flag.
 
+            //Saving for Level 2
             // if (_grabbed && timer._doneWaiting) // MOUSE BUTTON DOWN EVENT
             if (_grabbed) // MOUSE BUTTON DOWN EVENT
             {
@@ -91,10 +94,12 @@ public class AlexPlayerMovement : MonoBehaviour
 
                 // Hide player ghost
                 playerGhost.gameObject.SetActive(false);
+                //Saving for Level 2
                 // timer._doneWaiting = false;
             }
         }
 
+        //Saving for Level 2
         // if (_grabbed && timer._doneWaiting) // Behavior while grabbed
         if (_grabbed) // Behavior while grabbed
         {
@@ -143,14 +148,15 @@ public class AlexPlayerMovement : MonoBehaviour
             }
         }
     }
-
+    
     public bool IsGrabbed()
     {
         return _grabbed;
     }
 
-    public bool IsWaiting()
-    {
-        return timer._doneWaiting;
-    }
+    //Saving for Level 2
+    // public bool IsWaiting()
+    // {
+    //     return timer._doneWaiting;
+    // }
 }

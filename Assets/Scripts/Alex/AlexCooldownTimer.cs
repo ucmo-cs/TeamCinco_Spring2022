@@ -16,6 +16,7 @@ public class AlexCooldownTimer : MonoBehaviour
         text.text = timer.ToString();
     }
 
+    //Saving for Level 2
     public bool UpdateTimer(float distanceThisFrame)
     {
         var text = GetComponent<Text>();

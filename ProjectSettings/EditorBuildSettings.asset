@@ -14,10 +14,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nathan/NathanLevel1.unity
     guid: 53ad22ed2850c7543b4fa9ad089087ad
+  - enabled: 1
+    path: Assets/Scenes/Nathan/NathanLevel2.unity
+    guid: 08256c2282cb8514dbbaf5cd7d938140
+  - enabled: 1
+    path: Assets/Scenes/MovieTransition1.unity
+    guid: 7ab06fb6ae2d90941bfef8b9b56be709
   - enabled: 0
     path: Assets/Scenes/_OLD/AnchorBasedSwinging.unity
     guid: 60f931a8171dc9a47967e79ce5cc04d7
   - enabled: 0
     path: Assets/Scenes/_OLD/FreeSwinging.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Justice/JusticeLevel1.unity
+    guid: 629347f86018d1c4a95bb243ca017855
+  - enabled: 1
+    path: Assets/Scenes/Justice/JusticeLevel2.unity
+    guid: 6cc675bf5e839a2488f206d1d124e54a
+  - enabled: 1
+    path: Assets/Scenes/Justice/JusticeLevel3.unity
+    guid: 6a1a07e777ca5ec4c8f2141a18f73861
   m_configObjects: {}
