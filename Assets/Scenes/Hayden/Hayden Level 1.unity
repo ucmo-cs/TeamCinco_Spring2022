@@ -13194,6 +13194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348463158}
   - component: {fileID: 1348463159}
+  - component: {fileID: 1348463160}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -13266,6 +13267,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1348463160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348463157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4e892e9f5100b4f9c724d2a751fea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToDetect: {fileID: 925520852}
+  detectRadius: 1.5
+  sceneToLoad: Hayden Level 2
+  portalSound: {fileID: 8300000, guid: ffb3cb9252dc19848aa8a973d9900073, type: 3}
 --- !u!1 &1360113788
 GameObject:
   m_ObjectHideFlags: 0
