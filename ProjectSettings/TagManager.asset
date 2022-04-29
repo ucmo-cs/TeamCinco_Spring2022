@@ -10,6 +10,13 @@ TagManager:
   - Dash Token
   - Ground
   - Teleporter
+  - Instructions
+  - Gravity
+  - Death_Zone
+  - Saw
+  - CP
+  - Stalagtite
+  - Axe
   layers:
   - Default
   - TransparentFX
